@@ -1,0 +1,81 @@
+CREATE TABLE airline_delay(
+Year INT,
+MONTH INT,
+DayofMonth INT,
+DayofWeek INT,
+DepTime INT,
+CRSDepTime INT,
+ArrTime INT,
+CRSArrTime INT,
+UniqueCarrier STRING,
+FlightNum INT,
+TailNum STRING,
+ActualElapsedTime INT,
+CRSElapsedTime INT,
+AirTime INT,
+ArrDelay INT,
+DepDelay INT,
+Origin STRING,
+Dest STRING,
+Distance INT,
+TaxiIn INT,
+TaxiOut INT,
+Cancelled INT,
+CancellationCode STRING
+COMMENT 'A = carrier, B = weather, C = NAS, D = security',
+Diverted INT COMMENT '1 = yes, 0 = no',
+CarrierDelay STRING,
+WeatherDelay STRING,
+NASDelay STRING,
+SecurityDelay STRING,
+LateAircraftDelay STRING)
+COMMENT 'TEST DATA'
+PARTITIONED BY (delayYear INT)
+ROW FORMAT DELIMITED
+    FIELDS TERMINATED BY ','
+    LINES TERMINATED BY '\n'
+    STORED AS TEXTFILE;
+
+SELECT year,month,AVG(depdelay), AVG(arrdelay) FROM airline_delay WHERE delayYear=2006 ANG arrdelay>0 
+GROUP BY year,month ORDER BY year,month;
+
+select Year, Month, AVG(ArrDelay) AS avg_arrive_delay_time, AVG(DepDelay) AS avg_departure_delay_time
+from airline_delay where delayYear = 2006 and arrdelay > 0 group by Year, month 
+
+
+
+
+SELECT year,month,AVG(depdelay), AVG(arrdelay) FROM airline_delay 
+WHERE delayYear=2006 
+GROUP BY year,month ORDER BY year,month;
+
+
+SELECT Month, AVG(depdelay), AVG(arrdelay)
+FROM airline_delay
+WHERE delayYear = 2006
+AND ArrDelay > 0
+GROUP BY year,month
+ORDER BY month
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
