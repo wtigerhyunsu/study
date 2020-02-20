@@ -1,4 +1,4 @@
-# 2019.10 ~ 2020.04 [멀티캠퍼스 - 4차 산업 혁명 교육] 빅데이터를 활용한 IoT 시스템 개발
+# study# 2019.10 ~ 2020.04 [멀티캠퍼스 - 4차 산업 혁명 교육] 빅데이터를 활용한 IoT 시스템 개발
 
 - Web Client, Dynamic Web, Web Server 기술  java, html5, Oracle sql를 이용한 Spring 기반 Web Application  구축,jquery,ajax,DB연동
 
